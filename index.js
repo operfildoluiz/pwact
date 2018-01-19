@@ -9,9 +9,16 @@ if (!conf.args[0] || !conf.available_commands.includes(conf.args[0])) {
 }
 
 
-if (conf.args[0] == "init") {
+else if (conf.args[0] == "init") {
 
     let project = require("./src/commands/init")
+    return true
+
+}
+
+else if (conf.args[0] == "start") {
+
+    let start = require("./src/commands/start")
     return true
 
 }
