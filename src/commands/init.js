@@ -3,13 +3,14 @@ var fs = require("fs")
 
 var project = {}
 
-project.version = "1.0";
-project.files = ["manifest.json","service-worker.js","pwa.js"];
+project.version = "0.1"
+project.files = ["manifest.json","service-worker.js","pwa.js"]
 project.package_name = prompt('Package name (e.g.: myproject): ')
 project.name = prompt('Application name (e.g: My Project): ')
 project.short_name = prompt('App Name (e.g: MyProject): ')
 project.description = prompt('Application description (e.g.: My Project is just an example): ')
 project.lang = prompt('Application language (e.g.: en): ')
+project.color = prompt('Application color (e.g.: #DADADA): ')
 
 var start = prompt('Start basic PWA? (yes/no): ')
 

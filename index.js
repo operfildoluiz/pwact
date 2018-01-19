@@ -22,3 +22,10 @@ else if (conf.args[0] == "start") {
     return true
 
 }
+
+else if (conf.args[0] == "cache") {
+
+    let cache = require("./src/commands/cache")
+    return true
+
+}

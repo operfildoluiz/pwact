@@ -21,7 +21,7 @@
     <meta name="msapplication-square150x150logo" content="assets/images/icons/icon-152x152.png">
     <meta name="country" content="{{lang}}">
 
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="">
 </head>
 <body>
 
