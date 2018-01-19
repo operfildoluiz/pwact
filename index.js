@@ -8,24 +8,8 @@ if (!conf.args[0] || !conf.available_commands.includes(conf.args[0])) {
     return false
 }
 
+else {
 
-else if (conf.args[0] == "init") {
-
-    let project = require("./src/commands/init")
+    let res = require("./src/commands/" + conf.args[0])
     return true
-
-}
-
-else if (conf.args[0] == "start") {
-
-    let start = require("./src/commands/start")
-    return true
-
-}
-
-else if (conf.args[0] == "cache") {
-
-    let cache = require("./src/commands/cache")
-    return true
-
 }

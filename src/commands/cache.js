@@ -1,6 +1,5 @@
 var fs = require("fs")
 var conf = require("../conf")
-var prompt = require('syncprompt')
 var project = JSON.parse(fs.readFileSync('pwact.json', 'utf8'));
 
 if(!conf.args[1]){
