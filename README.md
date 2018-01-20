@@ -12,13 +12,9 @@ This command will add foo.html to Local Cache Storage
 
 # Install
 
-PWAct is under development, but you can use by cloning this repo. Soon enough, we'll be at NPM list
+In your (fresh) project, run
 
-Then, in your fresh project, run
-
-    npm link pwact
-
-*or npm install pwact (soon)*
+    npm install pwact
 
 That's it. You'll be able to use :D
 
