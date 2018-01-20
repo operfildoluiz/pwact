@@ -1,11 +1,8 @@
 {
   "name": "pwact",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Build PWAs faster and get more productivity",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha --reporter spec"
-  },
   "bin": {
     "pwact": "index.js"
   },
@@ -16,7 +13,7 @@
   "keywords": [
     "pwa"
   ],
-  "author": "Luiz Gonçalves <dev.luizh@gmail.com> (http://www.luizgoncalves.com.br)",
+  "author": "Luiz Gonçalves <dev.luizh@gmail.com> (https://github.com/lhcgoncalves)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lhcgoncalves/pwact/issues"
