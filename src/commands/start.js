@@ -1,27 +1,33 @@
 var fs = require("fs")
 var project = JSON.parse(fs.readFileSync('pwact.json', 'utf8'));
+var prompt = require('syncprompt')
 
-fs.readFile("./node_modules/pwact/src/dump/index.html.pwact", 'utf8', function (err,data) {
+var create_index = prompt('Create new index.html (yes/no | default: no): ') || 'no'
 
-    if (err) {
-        return console.log(err);
-    }
+if (create_index == "yes" || create_index == "y") {
 
-    var result = data
-                    .replace(/{{lang}}/g, project.lang)
-                    .replace(/{{name}}/g, project.name)
-                    .replace(/{{description}}/g, project.description)
-                    .replace(/{{color}}/g, project.color)
+    fs.readFile("./node_modules/pwact/src/dump/index.html.pwact", 'utf8', function (err,data) {
 
-    fs.writeFile("index.html", result, 'utf8', function (err) {
-
-        if(err) {
+        if (err) {
             return console.log(err);
         }
 
-        console.log("[PWAct]", "index.html set");
+        var result = data
+                        .replace(/{{lang}}/g, project.lang)
+                        .replace(/{{name}}/g, project.name)
+                        .replace(/{{description}}/g, project.description)
+                        .replace(/{{color}}/g, project.color)
+
+        fs.writeFile("index.html", result, 'utf8', function (err) {
+
+            if(err) {
+                return console.log(err);
+            }
+
+            console.log("[PWAct]", "index.html set");
+        });
     });
-});
+}
 
 fs.readFile("./node_modules/pwact/src/dump/manifest.json.pwact", 'utf8', function (err,data) {
 

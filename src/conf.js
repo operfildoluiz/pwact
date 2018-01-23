@@ -10,7 +10,23 @@ module.exports = {
         "start",
         "cache",
         "icon",
-        "manifest"
+        "manifest",
+        "related_apps"
+    ],
+    available_manifest: [
+        "name",
+        "short_name",
+        "theme_color",
+        "background_color",
+        "description",
+        "display",
+        "lang",
+        "dir",
+        "scope",
+        "start_url",
+        "manifest_version",
+        "author",
+        "homepage_url"
     ],
     npm_name: package.name,
     npm_description: package.description || "Simple description",
@@ -72,6 +88,11 @@ module.exports = {
                         example: "pwact manifest set:orientation portrait"
                     }
                 ]
+            },
+            {
+                command: "related_apps",
+                description: "Push a external app in Manifest.json",
+                parameters: []
             }
 
     ]
