@@ -1,16 +1,48 @@
 var fs = require("fs")
-var package = JSON.parse(fs.readFileSync("package.json", "utf8"));
+var pwact = {}
+if (fs.existsSync("pwact.json")) {
+  console.log('[PWAct]', 'Reading previous settings');
+  pwact = JSON.parse(fs.readFileSync("pwact.json", "utf8"));
+}
+
+if (pwact.paths && pwact.paths.package)
+    var package = JSON.parse(fs.readFileSync(pwact.paths.package, "utf8"));
+else
+    var package = JSON.parse(fs.readFileSync("package.json", "utf8"));
 
 module.exports = {
 
     args: process.argv.slice(2),
+    paths: {
+        manifest: (pwact.paths && pwact.paths.manifest) ? pwact.paths.manifest : 'manifest.json',
+        package: (pwact.paths && pwact.paths.package) ? pwact.paths.package : 'package.json',
+        worker: (pwact.paths && pwact.paths.worker) ? pwact.paths.worker : 'service-worker.js',
+        pwa: (pwact.paths && pwact.paths.pwa) ? pwact.paths.pwa : 'app.js',
+        icon: (pwact.paths && pwact.paths.icon) ? pwact.paths.icon : 'assets/images/icons',
+    },
     available_commands: [
         "help",
         "init",
         "start",
         "cache",
         "icon",
-        "manifest"
+        "manifest",
+        "related_apps"
+    ],
+    available_manifest: [
+        "name",
+        "short_name",
+        "theme_color",
+        "background_color",
+        "description",
+        "display",
+        "lang",
+        "dir",
+        "scope",
+        "start_url",
+        "manifest_version",
+        "author",
+        "homepage_url"
     ],
     npm_name: package.name,
     npm_description: package.description || "Simple description",
@@ -72,6 +104,11 @@ module.exports = {
                         example: "pwact manifest set:orientation portrait"
                     }
                 ]
+            },
+            {
+                command: "related_apps",
+                description: "Push a external app in Manifest.json",
+                parameters: []
             }
 
     ]

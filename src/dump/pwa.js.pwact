@@ -2,7 +2,7 @@
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-    .register('service-worker.js')
+    .register('{{p_worker}}')
     .then(function(reg) {
         console.log('[PWAct]','Service worker Registered');
     })

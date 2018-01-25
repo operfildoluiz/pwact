@@ -13,18 +13,16 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="manifest" href="./manifest.json">
-    <link rel="shortcut icon" href="assets/images/icons/icon-96x96.png">
+    <link rel="manifest" href="{{p_manifest}}">
+    <link rel="shortcut icon" href="{{p_icon}}/icon-96x96.png">
     <meta name="msapplication-TileColor" content="{{color}}">
-    <meta name="msapplication-TileImage" content="assets/images/icons/icon-144x144.png">
-    <meta name="msapplication-square70x70logo" content="assets/images/icons/icon-72x72.png">
-    <meta name="msapplication-square150x150logo" content="assets/images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="{{p_icon}}/icon-144x144.png">
+    <meta name="msapplication-square70x70logo" content="{{p_icon}}/icon-72x72.png">
+    <meta name="msapplication-square150x150logo" content="{{p_icon}}/icon-152x152.png">
     <meta name="country" content="{{lang}}">
-
-    <link rel="stylesheet" href="">
 </head>
 <body>
 
-    <script src="pwa.js"></script>
+    <script src="{{p_pwa}}"></script>
 </body>
 </html>
