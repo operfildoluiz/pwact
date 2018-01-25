@@ -1,6 +1,7 @@
 var conf = require("../conf")
 var fs = require("fs")
 var sharp = require('sharp')
+var mkdirp = require('mkdirp');
 var project = JSON.parse(fs.readFileSync('pwact.json', 'utf8'));
 
 if (!conf.args[1]) {
@@ -10,16 +11,16 @@ if (!conf.args[1]) {
 
 else {
 
-    if (!fs.existsSync('assets')){
-        fs.mkdirSync('assets');
-    }
+    if (!fs.existsSync(conf.paths.icon)){
+        mkdirp(conf.paths.icon, function (err) {
 
-    if (!fs.existsSync('assets/images')){
-        fs.mkdirSync('assets/images');
-    }
+        if (err)
+            console.log('[PWAct]', err);
 
-    if (!fs.existsSync('assets/images/icons')){
-        fs.mkdirSync('assets/images/icons');
+        else
+            console.log('[PWAct]', 'Icon path created: ' + conf.paths.icon)
+
+        });
     }
 
 
@@ -32,7 +33,7 @@ else {
 
         sharp(file)
         .resize(parseInt(dimension), parseInt(dimension))
-        .toFile('assets/images/icons/icon-'+dimension+'x'+dimension+'.png', function(err) {
+        .toFile(conf.paths.icon + '/icon-'+dimension+'x'+dimension+'.png', function(err) {
 
             if (err != null)
                 console.log('[PWAct]', err);

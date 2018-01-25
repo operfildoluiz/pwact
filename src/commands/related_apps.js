@@ -1,7 +1,7 @@
 var fs = require("fs")
 var conf = require("../conf")
 var prompt = require('syncprompt')
-var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+var manifest = JSON.parse(fs.readFileSync(conf.paths.manifest || 'manifest.json', 'utf8'));
 
 var prefer = prompt('Prefer related apps? (yes/no): ') || manifest.prefer_related_apps || false
 var prefer_related_apps = false;
@@ -10,7 +10,6 @@ var prefer_related_apps = false;
 if (prefer == "yes" && prefer == "y") {
 
     prefer_related_apps = true;
-
 }
 
 var apps = manifest.related_apps || []
@@ -38,13 +37,13 @@ do {
 manifest.prefer_related_apps = prefer_related_apps
 manifest.related_apps = apps
 
-fs.writeFile("manifest.json", JSON.stringify(manifest, null, 2), 'utf8', function (err) {
+fs.writeFile(conf.paths.manifest, JSON.stringify(manifest, null, 2), 'utf8', function (err) {
 
     if(err) {
         return console.log(err);
     }
 
-    console.log("[PWAct]", "manifest.json updated");
+    console.log("[PWAct]", conf.paths.manifest + " updated");
 });
 
 

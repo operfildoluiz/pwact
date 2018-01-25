@@ -2,7 +2,16 @@ var prompt = require('syncprompt')
 var fs = require("fs")
 var conf = require("../conf")
 
-var project = {}
+var project = {
+    paths: {
+        manifest: "manifest.json",
+        package: "package.json",
+        worker: "service-worker.js",
+        pwa: "app.js",
+        icon: "assets/images/icons"
+    }
+
+}
 
 project.version = "0.1"
 project.package_name = prompt('Package name (e.g.: ' + conf.npm_name + '): ') || conf.npm_name
@@ -11,7 +20,11 @@ project.short_name = prompt('App Name (e.g: MyProject): ') || conf.npm_name
 project.description = prompt('Application description (e.g.: ' + conf.npm_description + '): ') || conf.npm_description
 project.lang = prompt('Application language (e.g.: en): ') || 'en'
 project.color = prompt('Application color (e.g.: #DADADA): ') || '#DDD'
-project.files = ["manifest.json","service-worker.js","pwa.js"]
+project.files = [
+        project.paths.manifest,
+        project.paths.worker,
+        project.paths.pwa
+    ]
 
 var start = prompt('Start basic PWA? (yes/no): ') || 'no'
 
