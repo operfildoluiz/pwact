@@ -3,6 +3,7 @@ var fs = require("fs")
 var conf = require("../conf")
 
 var project = {
+
     paths: {
         manifest: "manifest.json",
         package: "package.json",
@@ -10,7 +11,6 @@ var project = {
         pwa: "app.js",
         icon: "assets/images/icons"
     }
-
 }
 
 project.version = "0.1"
@@ -28,20 +28,19 @@ project.files = [
 
 var start = prompt('Start basic PWA? (yes/no): ') || 'no'
 
-fs.writeFileSync("pwact.json", JSON.stringify(project, null, 2), function(err) {
+fs.writeFileSync("pwact.json", JSON.stringify(project, null, 2), function (err) {
 
-    if(err) {
+    if (err) {
 
         return console.log(err);
     }
 
-    console.log("[PWAct]","Configuration file set!");
+    console.log("[PWAct]", "Configuration file set!");
 });
 
 if (start == "yes" || start == "y") {
 
     let start = require("./start")
-
 }
 
 module.exports = project
