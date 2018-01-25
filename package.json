@@ -1,6 +1,6 @@
 {
   "name": "pwact",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Build PWAs faster and get more productivity",
   "main": "index.js",
   "bin": {
