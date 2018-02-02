@@ -2,7 +2,7 @@ var fs = require("fs")
 var conf = require("../conf")
 var project = JSON.parse(fs.readFileSync('pwact.json', 'utf8'));
 
-if(!conf.args[1] || conf.args[1] != "--reset"){
+if(!conf.args[1]){
     console.log("[PWAct]", "You must pass a file to cache or type --reset to cache from PWAct.json");
 }
 
